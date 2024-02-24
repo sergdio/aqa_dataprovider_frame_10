@@ -23,22 +23,19 @@ public class AlertTests extends BaseTest {
         String actualResult = driver.findElement(By.id("result")).getText();
         Assert.assertEquals(actualResult, "You entered: " + str);
 
-//        public void testJSConfirm()    {
-//            driver.get("https://the-internet.herokuapp.com/javascript_alerts");
-//
-//            //String str = "Student";
-//
-//            WebElement promptButton = driver.findElement(By.xpath("//*[@id=\"content\"]/div/ul/li[2]/button"));
-//            promptButton.click();
-//
-//            Alert alert = driver.switchTo().alert();
-//            alert.sendKeys(str);
-//            alert.accept();
-//
-//            String actualResult = driver.findElement(By.id("//*[@id=\"result\"]")).getText();
-//            Assert.assertEquals(actualResult, "You clicked: " + str);
+        @Test
+        public void testJSConfirm() {
+            driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 
+        WebElement promptButton1 = driver.findElement(By.xpath("//button[contains(text(),'JS Confirm')]"));
+        promptButton1.click();
 
+        Alert alert1 = driver.switchTo().alert();
+        //alert1.sendKeys(str);
+        alert1.accept();
+
+        String actualResult = driver.findElement(By.id("result")).getText();
+        Assert.assertEquals(actualResult, "You clicked:  " + "ОК");
 
     }
 }
